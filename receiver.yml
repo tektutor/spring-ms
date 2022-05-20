@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: receiver-ms 
+  labels:
+    app: receiver-ms 
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: receiver-ms 
+  template:
+    metadata:
+      labels:
+        app: receiver-ms 
+    spec:
+      containers:
+      - image: tektutor/receiver:6.0 
+        name: receiver-ms 

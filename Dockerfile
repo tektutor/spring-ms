@@ -1,3 +1,3 @@
 FROM docker.io/openjdk:latest
-COPY hello.jar /app.jar
+COPY receiver-6.0.jar /app.jar
 ENTRYPOINT [ "java", "-jar", "/app.jar" ]
