@@ -15,8 +15,8 @@ spec:
         app: hello
     spec:
       containers:
-      - image: openshiftindia/spring-ms:latest
-        name: spring-ms
+      - image: tektutor/maven:1.0
+        name: hello
 ---
 apiVersion: v1
 kind: Service
