@@ -4,11 +4,12 @@
 FROM registry.access.redhat.com/ubi8/openjdk-17 as build
 
 # Set workdir
-WORKDIR /app
+RUN mkdir hello 
+WORKDIR /home/jboss/hello
 
 # Copy pom.xml and download dependencies
 COPY pom.xml .
-RUN mvn dependency:go-offline -B
+RUN mvn dependency:go-offline
 
 # Copy source and build
 COPY src ./src
@@ -26,7 +27,7 @@ USER 1001
 WORKDIR /deployments
 
 # Copy the built jar
-COPY --from=build /app/target/*.jar app.jar
+COPY --from=build /home/jboss/hello/target/*.jar app.jar
 
 # Expose Spring Boot default port
 EXPOSE 8080
